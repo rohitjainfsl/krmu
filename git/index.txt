@@ -21,3 +21,5 @@ git remote remove
 git init: initializes the process of tracking files & folders
 git status: tells you which files & folders are being tracked right now
 git add: starts tracking
+
+git commit -m "COMMIT MESSAGE"
