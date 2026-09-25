@@ -28,9 +28,23 @@
 // x--;
 // console.log(x);
 
-let x = 0;
-console.log(++x); 
-console.log(x++); 
-console.log(x); 
-console.log(--x);
-console.log(x--);
+// let x = 0;
+// console.log(++x); //1
+// console.log(x++); //1
+// console.log(x);   //2
+// console.log(--x); //1
+// console.log(x--); //1
+
+// let x = -1; //0
+// let y = x++; //0
+// let z = ++y; //0
+// let a = x++ + y++ + z++;
+// console.log(a);
+// console.log(x + y + z);
+
+// let a = 1; //4
+// let b = ++a + 1; //5
+// let c = a++ + b++; //5
+// let d = ++a + ++b + c++; //14
+// console.log(d++); //14
+// console.log(d + 3); //18
