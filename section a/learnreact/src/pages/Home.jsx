@@ -1,4 +1,6 @@
 import { useEffect, useState } from "react";
+import AddToCartBtn from "../components/AddToCartBtn";
+import { Link } from "react-router-dom";
 
 function Home() {
   const [products, setProducts] = useState([]);
@@ -12,6 +14,13 @@ function Home() {
     setProducts(result);
   }
 
+  function trimContent(input, maxLength) {
+    const arr = input.split(" ");
+    return arr.length > maxLength
+      ? arr.slice(0, maxLength).join(" ") + "..."
+      : input;
+  }
+
   return (
     <>
       <section id="product-wrapper">
@@ -19,11 +28,14 @@ function Home() {
           ? products.map((product) => (
               <div className="product" key={product.id}>
                 <div className="picture">
-                  <img src={product.image} alt="" />
+                  <Link to={`/product/${product.id}`}>
+                    <img src={product.image} alt="" />
+                  </Link>
                 </div>
                 <div className="content">
-                  <h3>{product.title}</h3>
-                  <p>{product.price}</p>
+                  <h3>{trimContent(product.title, 7)}</h3>
+                  <p>${product.price}</p>
+                  <AddToCartBtn />
                 </div>
               </div>
             ))
