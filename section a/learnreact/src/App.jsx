@@ -1,19 +1,28 @@
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import First from "./pages/First";
-import Header from "./components/Header";
-import Footer from "./components/Footer";
+import Cart from "./pages/Cart";
+import Home from "./pages/Home";
+import SingleProduct from "./pages/SingleProduct";
 import "./ecommerce.css";
 
 const routes = createBrowserRouter([
   {
     path: "/",
-    element: (
-      <>
-        <Header />
-        <First />
-        <Footer />
-      </>
-    ),
+    element: <First />,
+    children: [
+      {
+        index: true,
+        element: <Home />,
+      },
+      {
+        path: "/cart",
+        element: <Cart />,
+      },
+      {
+        path: "/product",
+        element: <SingleProduct />,
+      },
+    ],
   },
 ]);
 
