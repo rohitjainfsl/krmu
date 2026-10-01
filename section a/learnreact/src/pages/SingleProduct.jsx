@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
-import AddToCartBtn from "../components/AddToCartBtn";
+import AddToCart from "../components/AddToCart";
+import Loading from "../components/Loading";
 
 function SingleProduct() {
   const [product, setProduct] = useState({});
@@ -26,18 +27,18 @@ function SingleProduct() {
           <div className="right">
             <h2>{product.title}</h2>
             <p className="category">
-              Category:{" "}
+              Category:
               <strong>
                 <em>{product.category}</em>
               </strong>
             </p>
             <h4 className="price">$ {product.price}</h4>
             <p className="description">{product.description}</p>
-            <AddToCartBtn />
+            <AddToCart />
           </div>
         </div>
       ) : (
-        ""
+        <Loading />
       )}
     </>
   );

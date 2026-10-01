@@ -1,5 +1,5 @@
-function AddToCartBtn() {
+function AddToCart() {
   return <button className="addToCart">Add To Cart</button>;
 }
 
-export default AddToCartBtn;
+export default AddToCart;
