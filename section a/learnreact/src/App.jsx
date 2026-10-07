@@ -3,6 +3,7 @@ import First from "./pages/First";
 import Cart from "./pages/Cart";
 import Home from "./pages/Home";
 import SingleProduct from "./pages/SingleProduct";
+import { CartProvider } from "./context/CartContext";
 import "./ecommerce.css";
 
 const routes = createBrowserRouter([
@@ -27,7 +28,12 @@ const routes = createBrowserRouter([
 ]);
 
 function App() {
-  return <RouterProvider router={routes}></RouterProvider>;
+  return (
+    <CartProvider>
+      <RouterProvider router={routes} />
+    </CartProvider>
+  );
 }
 
 export default App;
+
