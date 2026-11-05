@@ -10,25 +10,23 @@ import { errorHandler, notFound } from "./middleware/errorMiddleware.js";
 const app = express();
 app.use(
   cors({
-    origin: {
-      origin: function (origin, callback) {
-        // Example: Allow all requests if no origin is present (e.g., mobile apps)
-        if (!origin) return callback(null, true);
+    origin: function (origin, callback) {
+      // Example: Allow all requests if no origin is present (e.g., mobile apps)
+      if (!origin) return callback(null, true);
 
-        // Example: Check against a whitelist or database
-        const whitelist = [
-          "https://job-portal-frontend-lac-xi.vercel.app/",
-          "http://localhost:5173",
-          "https://krmu-frontend.vercel.app",
-        ];
-        if (whitelist.indexOf(origin) !== -1) {
-          callback(null, true); // Allow the request
-        } else {
-          callback(new Error("Not allowed by CORS")); // Block the request
-        }
-      },
-      credentials: true,
+      // Example: Check against a whitelist or database
+      const whitelist = [
+        "https://job-portal-frontend-lac-xi.vercel.app/",
+        "http://localhost:5173",
+        "https://krmu-frontend.vercel.app",
+      ];
+      if (whitelist.indexOf(origin) !== -1) {
+        callback(null, true); // Allow the request
+      } else {
+        callback(new Error("Not allowed by CORS")); // Block the request
+      }
     },
+    credentials: true,
   }),
 );
 app.use(express.json());
